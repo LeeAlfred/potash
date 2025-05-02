@@ -1,0 +1,16 @@
+body {
+    font-family: sans-serif; /* Sets the default font for the entire page */
+    background-color: #f0f0f0; /* Sets a light gray background color */
+    margin: 0; /* Removes default browser margins around the body */
+    padding: 20px; /* Adds some padding around the content */
+    color: #333; /* Sets a dark gray text color */
+}
+
+h1 {
+    color: navy; /* Sets the heading text color to navy blue */
+    text-align: center; /* Centers the heading text */
+}
+
+p {
+    line-height: 1.6; /* Improves readability by adding space between lines */
+}
