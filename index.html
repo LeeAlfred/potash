@@ -35,7 +35,10 @@
         </section>
     </main>
     <footer>
-        <p>&copy; 2023 Potash. All rights reserved.</p>
+        <p>&copy; <span id="currentYear">2023</span> Potash. All rights reserved.</p>
+        <script>
+            document.getElementById("currentYear").textContent = new Date().getFullYear();
+        </script>
     </footer>
 </body>
 </html>

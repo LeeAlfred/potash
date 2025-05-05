@@ -1,16 +1,98 @@
 body {
-    font-family: sans-serif; /* Sets the default font for the entire page */
-    background-color: #f0f0f0; /* Sets a light gray background color */
-    margin: 0; /* Removes default browser margins around the body */
-    padding: 20px; /* Adds some padding around the content */
-    color: #333; /* Sets a dark gray text color */
+    font-family: sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    color: #111;
+    text-align: center;
+    margin-bottom: 1em;
 }
 
 h1 {
-    color: navy; /* Sets the heading text color to navy blue */
-    text-align: center; /* Centers the heading text */
+    color: #78a4af; /* Highlight color for the main title */
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+    letter-spacing: 0.45em;
+    font-weight: normal;
+    text-transform: lowercase;
+    font-family: monospace, sans-serif;
 }
 
-p {
-    line-height: 1.6; /* Improves readability by adding space between lines */
+header p {
+    font-size: 1em;
+    color: #555;
+    text-align: center;
+    line-height: 1.4;
+    letter-spacing: 0.15em;
+    font-style: italic;
+}
+
+nav {
+    background-color: #f4f4f4;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+nav ul li {
+    margin: 10px 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for both background and color */
+}
+
+nav ul li a:hover {
+    background-color: #78a4af; /* Highlight color on hover */
+    color: #fff; /* White text on hover */
+}
+
+main {
+    padding: 20px 0;
+}
+
+section {
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: #f9f9f9; /* A very light gray, slightly different from body */
+    border-top: 1px solid #eee; /* Very light top border */
+    border-bottom: 1px solid #eee;
+    border-radius: 5px;
+}
+
+footer {
+    background-color: #78a4af;
+    color: #f4f4f4;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.8em;
+}
+
+@media (min-width: 768px) {
+    nav ul {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    nav ul li {
+        margin: 0 15px;
+    }
 }
