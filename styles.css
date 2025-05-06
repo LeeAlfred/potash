@@ -96,3 +96,40 @@ footer {
         margin: 0 15px;
     }
 }
+
+/* Media query for smaller screens (e.g., phones in portrait) */
+@media (max-width: 600px) {
+    .artist-grid {
+        grid-template-columns: 1fr; /* Force a single column */
+    }
+}
+
+.artist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+}
+
+.artist-grid figure {
+    margin: 0; /* Remove default margin on figure */
+}
+
+.artist-grid img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 5px; /* Add a little space between image and caption */
+    transition: opacity 0.3s ease-in-out; /* Smooth transition for opacity */
+}
+
+.artist-grid img:hover {
+    opacity: 0.8; /* Slightly reduce opacity on hover to darken */
+}
+
+
+.artist-grid figcaption {
+    font-size: 0.9em;
+    color: #555; /* A slightly lighter gray for the caption */
+    text-align: center;
+}
