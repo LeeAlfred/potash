@@ -104,32 +104,146 @@ footer {
     }
 }
 
-.artist-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 10px;
+/*about section*/
+
+#about {
+    padding: 30px; /* Increase padding for more visual space */
+    background-color: #f9f9f9; /* Keep the light gray background for consistency */
+    border-top: 1px solid #eee; /* Light top border for separation */
+    border-bottom: 1px solid #eee; /* Light bottom border for separation */
+    border-radius: 5px; /* Keep the rounded corners */
 }
 
-.artist-grid figure {
-    margin: 0; /* Remove default margin on figure */
+#about h2 {
+    color: #78a4af; /* Use your penguin blue-gray for the heading */
+    text-align: center;
+    margin-bottom: 1.5em; /* More space below the heading */
 }
 
-.artist-grid img {
-    width: 100%;
+#about p {
+    line-height: 1.7; /* Improve readability with increased line height */
+    margin-bottom: 1em; /* Space between paragraphs */
+    color: #333; /* Dark gray for the body text */
+    font-size: 1em; /* Adjust font size if needed */
+}
+
+/* Featured artists section */
+
+
+    color: #78a4af; /* Bright yellow for the charity link */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.featured-artist p a:hover {
+    text-decoration: underline; /* Subtle feedback on hover */
+}
+
+/*Featured artists section*/
+
+.featured-artist {
+    background-color: #fff; /* White background for the featured artist section */
+    border: 1px solid #eee; /* Light gray border */
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px; /* Space below the section */
+    text-align: center; /* Center align content for mobile */
+}
+
+.featured-artist h3 {
+    color: #78a4af; /* Penguin blue-gray for the artist's name */
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.featured-artist img {
+    max-width: 300px; /* Adjust as needed */
     height: auto;
     display: block;
+    margin: 10px auto; /* Center the image */
+    border-radius: 5px; /* Optional: rounded corners for the image */
+}
+
+.featured-artist p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #333;
+    text-align: left; /* Left align the bio text for better readability */
+}
+
+.featured-artist p a {
+    color: #78a4af; /* Bright yellow for the charity link */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.featured-artist p a:hover {
+    text-decoration: underline; /* Subtle feedback on hover */
+}
+
+/* Media query for larger screens to potentially layout image and text side-by-side */
+@media (min-width: 768px) {
+    .featured-artist {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-align: left; /* Left align text on larger screens */
+    }
+
+    .featured-artist img {
+        max-width: 250px; /* Adjust image size for side-by-side layout */
+        margin-right: 20px;
+        margin-left: 0; /* Remove left margin when side-by-side */
+    }
+
+    .featured-artist h3 {
+        margin-top: 0; /* Adjust heading margin in flex layout */
+    }
+
+    .featured-artist > p:last-child { /* Target the charity link paragraph */
+        margin-top: 10px; /* Add a little space above the link */
+    }
+}
+
+/* Project cards */
+.project-card {
+    background-color: #fff; /* White background for the card */
+    border: 1px solid #eee; /* Light gray border */
     border-radius: 5px;
-    margin-bottom: 5px; /* Add a little space between image and caption */
-    transition: opacity 0.3s ease-in-out; /* Smooth transition for opacity */
+    padding: 20px;
+    margin-bottom: 20px; /* Space between the card and the "Explore projects" paragraph */
+    text-align: center; /* Center the content within the card */
 }
 
-.artist-grid img:hover {
-    opacity: 0.8; /* Slightly reduce opacity on hover to darken */
+.project-card h3 {
+    color: #78a4af; /* Use your penguin blue-gray for the charity name */
+    margin-top: 0; /* Remove default top margin for the heading */
+    margin-bottom: 10px;
 }
 
+.project-card img {
+    max-width: 200px; /* Limit the maximum width of the logo */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Prevent extra space below inline elements */
+    margin: 10px auto; /* Center the logo horizontally */
+    border-radius: 5px; /* Optional: Add a subtle rounded border to the logo */
+}
 
-.artist-grid figcaption {
-    font-size: 0.9em;
-    color: #555; /* A slightly lighter gray for the caption */
-    text-align: center;
+.project-card p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.project-card p a {
+    color: #fff; /* Use your bright yellow for the link */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 5px;
+    background-color: #78a4af; /* Dark background for the link button */
+    transition: background-color 0.3s ease;
+}
+
+.project-card p a:hover {
+    background-color: #333; /* Slightly darker on hover */
 }
