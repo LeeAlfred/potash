@@ -130,7 +130,7 @@ footer {
 /* Featured artists section */
 
 
-    color: #78a4af; /* Bright yellow for the charity link */
+.featured-artist p a {color: #78a4af; /* Bright yellow for the charity link */
     text-decoration: none;
     font-weight: bold;
 }
