@@ -23,6 +23,11 @@ h1 {
     font-family: monospace, sans-serif;
 }
 
+h2 {color: #78a4af;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;}
+
+
 header p {
     font-size: 1em;
     color: #555;
@@ -205,7 +210,7 @@ footer {
     }
 }
 
-/* Project cards */
+/* Charity Project cards */
 .project-card {
     background-color: #fff; /* White background for the card */
     border: 1px solid #eee; /* Light gray border */
@@ -246,4 +251,171 @@ footer {
 
 .project-card p a:hover {
     background-color: #333; /* Slightly darker on hover */
+}
+
+/* Contacts Section */
+
+#contact {
+    padding: 30px; /* Consistent padding */
+    background-color: #f9f9f9; /* Consistent background color */
+    border-top: 1px solid #eee; /* Consistent top border */
+    border-bottom: 1px solid #eee; /* Consistent bottom border */
+    border-radius: 5px; /* Consistent rounded corners */
+    text-align: center; /* Center align the content */
+}
+
+#contact h2 {
+    color: #78a4af; /* Consistent heading color */
+    text-align: center;
+    margin-bottom: 1.5em; /* Consistent spacing below heading */
+}
+
+#contact p {
+    line-height: 1.7; /* Consistent line height for readability */
+    margin-bottom: 1em; /* Consistent spacing between paragraphs */
+    color: #333; /* Consistent text color */
+    font-size: 1em; /* Consistent font size */
+}
+
+#contact p a {
+    color: #78a4af; /* Style the email link with your highlight color */
+    text-decoration: none; /* Remove underline by default */
+    font-weight: bold;
+}
+
+#contact p a:hover {
+    text-decoration: underline; /* Add underline on hover for better feedback */
+}
+/* Artist-Space-page */
+/* Styling for artist-space.html main content */
+main {
+    padding: 20px;
+}
+
+main > section {
+    background-color: #f9f9f9; /* Light gray background for sections */
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 30px; /* Space between sections */
+}
+/* Styling for the Artist Bio section */
+#artist-bio {
+    text-align: center; /* Center align image and heading on smaller screens */
+}
+
+#artist-bio h2 {
+    color: #78a4af; /* Use your penguin blue-gray for the heading */
+    margin-bottom: 1em;
+}
+
+#artist-bio img {
+    max-width: 200px; /* Adjust size as needed */
+    height: auto;
+    border-radius: 50%; /* Make it circular */
+    margin-bottom: 1em;
+}
+
+#artist-bio p {
+    line-height: 1.7;
+    color: #333;
+    margin-bottom: 1em;
+    text-align: left; /* Left align the biography text for readability */
+}
+
+/* Media query for larger screens to potentially align image and text side-by-side */
+@media (min-width: 768px) {
+    #artist-bio {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-align: left; /* Left align text on larger screens */
+    }
+
+    #artist-bio img {
+        max-width: 150px; /* Adjust image size for side-by-side layout */
+        margin-right: 20px;
+        margin-bottom: 0; /* Remove bottom margin when side-by-side */
+    }
+
+    #artist-bio h2 {
+        margin-top: 0; /* Adjust heading margin in flex layout */
+    }
+}
+
+/* Styling for the Artwork section */
+#artist-artwork h2 {
+    color: #78a4af; /* Consistent heading color */
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+.artwork-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive grid */
+    gap: 10px; /* Spacing between images */
+}
+
+.artwork-gallery img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 5px; /* Optional: rounded corners for images */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Styling for the Supporting Charity section */
+#supporting-charity {
+    text-align: center; /* Center align content */
+}
+
+#supporting-charity h2 {
+    color: #78a4af; /* Consistent heading color */
+    margin-bottom: 1em;
+}
+
+#supporting-charity img {
+    max-width: 150px; /* Adjust logo size as needed */
+    height: auto;
+    margin-bottom: 1em;
+    border-radius: 5px; /* Optional: rounded corners for logo */
+}
+
+#supporting-charity p {
+    line-height: 1.7;
+    color: #333;
+    margin-bottom: 1em;
+    text-align: left; /* Left align text for readability */
+}
+
+#supporting-charity p a {
+    color: #78a4af; /* Style the charity link */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#supporting-charity p a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Media query for larger screens to potentially align logo and text */
+@media (min-width: 768px) {
+    #supporting-charity {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-align: left; /* Left align text on larger screens */
+    }
+
+    #supporting-charity img {
+        max-width: 100px; /* Adjust logo size for side-by-side */
+        margin-right: 20px;
+        margin-bottom: 0;
+    }
+
+    #supporting-charity h2 {
+        margin-top: 0; /* Adjust heading margin */
+        margin-right: 20px; /* Add space between heading and text */
+    }
 }
