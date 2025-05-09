@@ -83,12 +83,49 @@ section {
     border-radius: 5px;
 }
 
+/* Footer Styling */
 footer {
     background-color: #78a4af;
-    color: #f4f4f4;
+    color: #000;
     text-align: center;
     padding: 20px 0;
     font-size: 0.8em;
+    line-height: 1.6;
+}
+
+.footer-nav {
+    background-color: transparent; /* Ensure it inherits the footer's background */
+}
+
+.footer-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 10px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-nav li {
+    margin: 0 10px;
+}
+
+.footer-nav a {
+    color: #f4f4f4;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: #000; /* Your bright yellow for hover effect */
+}
+
+footer a {
+    color: #f4f4f4;
+    text-decoration: underline;
+}
+
+footer a:hover {
+    color: #fff;
 }
 
 @media (min-width: 768px) {
@@ -324,6 +361,16 @@ main > section {
     text-align: left; /* Left align the biography text for readability */
 }
 
+#artists .featured-artist h3 a {
+    text-decoration: none; /* Remove the underline */
+    color: #78a4af; /* Keep the penguin blue-gray color */
+    /* You might want to add a hover effect to provide feedback */
+}
+
+#artists .featured-artist h3 a:hover {
+    text-decoration: underline; /* Add underline on hover for interaction cue */
+}
+
 /* Media query for larger screens to potentially align image and text side-by-side */
 @media (min-width: 768px) {
     #artist-bio {
@@ -418,4 +465,86 @@ main > section {
         margin-top: 0; /* Adjust heading margin */
         margin-right: 20px; /* Add space between heading and text */
     }
+}/* Styling for the Supported Charities page */
+
+body#charities-page header input[type="text"] {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    margin-top: 15px;
+    font-size: 1em;
+    color: #333;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+body#charities-page header input[type="text"]:focus {
+    outline: none;
+    border-color: #78a4af;
+    box-shadow: 0 1px 6px rgba(120, 164, 175, 0.2);
+}
+
+#charities main {
+    padding: 20px;
+}
+
+#charities header {
+    text-align: center;
+    padding: 20px 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+#charities header input[type="text"] {
+    padding: 12px; /* Slightly increase padding */
+    border: 1px solid #ccc;
+    border-radius: 8px; /* Slightly more rounded corners */
+    width: 90%; /* Increase width to take up more of the header */
+    max-width: 600px; /* Increase maximum width */
+    margin-top: 15px; /* Adjust top margin */
+    font-size: 1em; /* Make the text a bit larger */
+    color: #333; /* Darker text for better readability */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+}
+
+#charities header input[type="text"]:focus {
+    outline: none; /* Remove default focus outline */
+    border-color: #78a4af; /* Highlight the border on focus */
+    box-shadow: 0 1px 6px rgba(120, 164, 175, 0.2); /* More prominent focus shadow */
+}
+
+#charities main p {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.charity-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Spacing between charity cards */
+}
+
+.charity-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.charity-card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    max-height: 100px; /* Limit logo height */
+    object-fit: contain; /* Ensure logo fits within the bounds */
+}
+
+.charity-card h3 {
+    color: #333;
+    font-size: 1.1em;
+    margin-top: 0;
 }
