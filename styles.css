@@ -83,6 +83,137 @@ section {
     border-radius: 5px;
 }
 
+/* Styling for the Featured Artists section with multiple artists */
+#artists {
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#artists h2 {
+    color: #78a4af;
+    text-align: center;
+    margin-bottom: 1.5em;
+}
+
+.featured-artist {
+    margin-bottom: 2em;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.featured-artist h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.featured-artist img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 1em;
+}
+
+.featured-artist p {
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 0.8em;
+}
+
+/* Media query for larger screens to display featured artists side-by-side */
+@media (min-width: 768px) {
+    #artists {
+        text-align: left;
+    }
+
+     .featured-artist p strong {
+        color: #78a4af; /* Your highlight color */
+        font-weight: bold;
+    }
+    .featured-artist-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px; /* Increased gap */
+        justify-content: space-around;
+    }
+
+    .featured-artist {
+        flex-basis: calc(30% - 30px); /* Slightly reduced basis with increased gap */
+        margin-bottom: 0;
+        padding: 15px; /* Added some padding inside each artist block */
+    }
+
+    .featured-artist h3 {
+        margin: 0.5em; /* Add space below the name */
+    }
+
+    .featured-artist img {
+        max-height: 180px; /* Slightly reduce max height */
+        object-fit: cover;
+        margin-bottom: 0.8em; /* Add space below the image */
+    }
+
+    .featured-artist p {
+        margin-bottom: 0.6em; /* Adjust spacing around paragraphs */
+    }
+}
+
+
+/* Styling for the Contact Form */
+#contact form {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    display: grid;
+    gap: 15px;
+}
+
+#contact form div {
+    display: flex;
+    flex-direction: column;
+}
+
+#contact form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+#contact form input[type="text"],
+#contact form input[type="email"],
+#contact form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+#contact form textarea {
+    resize: vertical; /* Allow vertical resizing of the textarea */
+}
+
+#contact form button[type="submit"] {
+    background-color: #78a4af; /* Your penguin blue-gray */
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#contact form button[type="submit"]:hover {
+    background-color: #333;
+}
+
 /* Footer Styling */
 footer {
     background-color: #78a4af;
