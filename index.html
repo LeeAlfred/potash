@@ -7,12 +7,18 @@
     <title>Potash - Artists Making a Difference</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <header>
         <h1>Potash</h1>
         <p>Where artists make a difference in their communities</p>
     </header>
-    <nav>
+    <nav class="top-nav">
+<div class="hamburger">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+</div>
         <ul>
             <li><a href="#about">About</a></li>
             <li><a href="#artists">Artists</a></li>
@@ -95,5 +101,14 @@
     <p>&copy; <span id="currentYear">2025</span> Potash. All rights reserved.</p>
     <p><a href="privacy-policy.html">Privacy Policy</a></p>
 </footer>
+<script>
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.top-nav ul');
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+</script>
 </body>
 </html>

@@ -10,6 +10,19 @@
     <header>
         <h1>Lee Sampson</h1>
     </header>
+        <nav class="top-nav">
+        <div class="hamburger">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+</div>
+<ul>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="artist-space.html">Artists</a></li>
+            <li><a href="charities.html">Charities</a></li>
+            <li><a href="index.html.#contact">Contact</a></li>
+        </ul>
+    </nav>
     <main>
         <section id="artist-bio">
             <h2>About the Artist</h2>
@@ -57,5 +70,14 @@
     <p>&copy; <span id="currentYear">2025</span> Potash. All rights reserved.</p>
     <p><a href="privacy-policy.html">Privacy Policy</a></p>
 </footer>
+<script>
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.top-nav ul');
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+</script>
 </body>
 </html>

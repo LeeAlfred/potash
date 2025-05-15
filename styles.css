@@ -37,6 +37,131 @@ header p {
     font-style: italic;
 }
 
+/* --- Top Navigation Menu Styles --- */
+.top-nav {
+    background-color: #f0f0f0; /* Light background color for the navbar */
+    padding: 10px;
+    position: sticky; /* Stick the navbar to the top */
+    top: 0;
+    z-index: 10; /* Ensure it's above other elements */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border-bottom: 1px solid #ddd;
+}
+
+.top-nav ul {
+    list-style: none; /* Remove bullet points */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Use flexbox for horizontal layout */
+    justify-content: center; /* Center the links */
+    align-items: center; /* Vertically center items */
+    gap: 20px; /* Space between links */
+}
+
+.top-nav ul li {
+    /* No specific styling needed here, but you can add some if you want */
+}
+
+.top-nav ul li a {
+    color: #333; /* Dark text color */
+    text-decoration: none; /* Remove underlines */
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 5px; /* Rounded corners for the links */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.top-nav ul li a:hover {
+    background-color: #78a4af; /* Lighter background on hover */
+}
+
+/* --- Responsive Adjustments (for smaller screens) --- */
+@media (max-width: 768px) {
+    .top-nav ul {
+        flex-direction: column; /* Stack links vertically on small screens */
+        text-align: center; /* Center the links */
+        gap: 10px;
+    }
+
+    .top-nav ul li a {
+        padding: 10px;
+        display: block; /* Make each link a block element */
+        width: 100%;
+        box-sizing: border-box; /* Include padding in width */
+    }
+}
+
+/* --- Hamburger Menu Styles --- */
+.hamburger {
+    display: none; /* Hide by default on larger screens */
+    cursor: pointer;
+    padding: 10px;
+    position: absolute; /* Position absolutely within the nav */
+    top: 0;
+    right: 0;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #333; /* Dark color for the bars */
+    margin: 5px 0;
+    transition: transform 0.3s ease; /* Smooth transition for animation */
+}
+
+/* --- Responsive Adjustments (for smaller screens) --- */
+@media (max-width: 768px) {
+    .top-nav ul {
+        display: none; /* Hide the <ul> by default on small screens */
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+        position: absolute; /* Position absolutely */
+        top: 100%; /* Place it below the nav */
+        left: 0;
+        background-color: #f0f0f0; /* Same background as nav */
+        width: 100%;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
+        z-index: 10;
+    }
+
+    .top-nav ul.active {
+        display: flex; /* Show the <ul> when it has the 'active' class */
+    }
+
+    .top-nav ul li a {
+        padding: 10px;
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .hamburger {
+        display: block; /* Show the hamburger icon on small screens */
+    }
+
+    .top-nav {
+        position: relative; /* Needed for absolute positioning of hamburger and ul */
+        padding-right: 40px; /* Make space for the hamburger icon */
+    }
+}
+
+/* --- JavaScript-Controlled Styles (for hamburger menu animation) --- */
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Bottom Nav */
+
 nav {
     background-color: #f4f4f4;
     padding: 10px 0;
@@ -113,7 +238,7 @@ section {
 }
 
 .featured-artist img {
-    max-width: 100%;
+    max-width: 100%; /* Ensure image scales down */
     height: auto;
     border-radius: 5px;
     margin-bottom: 1em;
@@ -152,11 +277,14 @@ section {
         margin: 0.5em; /* Add space below the name */
     }
 
-    .featured-artist img {
-        max-height: 180px; /* Slightly reduce max height */
-        object-fit: cover;
-        margin-bottom: 0.8em; /* Add space below the image */
-    }
+.featured-artist img {
+    max-width: 100%;  /* Ensure image scales down */
+    height: auto;     /* Maintain aspect ratio */
+    max-height: 200px; /* Limit the maximum height */
+    object-fit: cover;  /* Crop if necessary to fit */
+    border-radius: 5px;
+    margin-bottom: 0.8em;
+}
 
     .featured-artist p {
         margin-bottom: 0.6em; /* Adjust spacing around paragraphs */
@@ -330,7 +458,7 @@ footer a:hover {
 }
 
 .featured-artist img {
-    max-width: 300px; /* Adjust as needed */
+
     height: auto;
     display: block;
     margin: 10px auto; /* Center the image */
