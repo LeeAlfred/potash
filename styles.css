@@ -807,3 +807,7 @@ body#charities-page header input[type="text"]:focus {
     font-size: 1.1em;
     margin-top: 0;
 }
+
+.charity-grid a {
+    text-decoration: none;  /* Remove the default hyperlink underline from the text */
+}
