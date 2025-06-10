@@ -10,7 +10,7 @@
 
 <body>
     <header>
-        <h1>Potash</h1>
+        <h1>People of the Arts Save humanity</h1>
         <p>Where artists make a difference in their communities</p>
     </header>
     <nav class="top-nav">
@@ -28,11 +28,51 @@
     </nav>
     <main>
         <section id="about">
-            <h2>About Potash</h2>
+            <h2>About People of the Arts saving humanity</h2>
             <p>Potash is a platform born from the belief that art can help save humanity. It's a digital space connecting artists with communities to address needs both big and small, from transforming graffiti to art to raising awareness for important causes.</p>
             <p>Our goal is to empower artists to make a positive difference in the world by providing providing a platform to showcase their work while directly supporting their community through charities they feel strongly about. We envision a global network where artists can work locally and globally, making their art more accessible and supporting meaningful change.</p>
         </section>
-        
+        <section id="how-it-works-payment" class="py-10 px-4">
+    <div class="container mx-auto">
+        <h2 class="text-3xl font-bold text-center text-[#78a4af] mb-8 rounded-lg p-2">How It Works: Payment Example</h2>
+        <p class="text-center text-gray-700 mb-8 max-w-2xl mx-auto">
+            See how Potash ensures a portion of each sale automatically supports a chosen charity.
+            Select an artist, enter a simulated purchase amount, and watch the funds distribute!
+        </p>
+
+        <div class="bg-white p-6 rounded-lg shadow-lg max-w-xl mx-auto">
+            <div class="mb-6">
+                <label for="artistSelect" class="block text-gray-700 text-sm font-bold mb-2">Select an Artist:</label>
+                <select id="artistSelect" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500 rounded-lg">
+                    <option value="artist1">Lee Sampson (Penguin Cartoons) - 20% to Mary Potter Hospice</option>
+                    <option value="artist2">Mr Sampson (Bird Illustrations) - 35% to SPCA New Zealand</option>
+                    <option value="artist3">L. Sampson (Digital Landscapes) - 15% to Breast Cancer Foundation NZ</option>
+                </select>
+            </div>
+
+            <div class="mb-6">
+                <label for="purchaseAmount" class="block text-gray-700 text-sm font-bold mb-2">Enter Purchase Amount ($):</label>
+                <input type="number" id="purchaseAmount" value="100" min="1" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500 rounded-lg">
+            </div>
+
+            <button id="simulatePurchase" class="w-full bg-[#78a4af] hover:bg-[#6a939e] text-white font-bold py-3 px-4 rounded-lg focus:outline-none focus:shadow-outline transition duration-300 ease-in-out">
+                Simulate Purchase
+            </button>
+
+            <div id="results" class="mt-8 p-4 bg-gray-100 rounded-lg border border-gray-200">
+                <h3 class="text-lg font-bold text-gray-800 mb-4">Distribution Results:</h3>
+                <p><strong>Artist Name:</strong> <span id="displayArtistName"></span></p>
+                <p><strong>Charity:</strong> <span id="displayCharityName"></span></p>
+                <p><strong>Charity Percentage:</strong> <span id="displayCharityPercent"></span></p>
+                <p><strong>Platform Fee:</strong> <span id="displayPlatformFee"></span></p>
+                <hr class="my-4 border-gray-300">
+                <p class="text-green-700 font-bold">Charity Receives: <span id="resultCharityAmount">$0.00</span></p>
+                <p class="text-blue-700 font-bold">Artist Receives: <span id="resultArtistAmount">$0.00</span></p>
+                <p class="text-purple-700 font-bold">Potash Receives (Fee): <span id="resultPlatformFee">$0.00</span></p>
+            </div>
+        </div>
+    </div>
+</section>
 <section id="artists">
     <h2>Featured Artists</h2>
 <div class="featured-artist-container">
@@ -95,6 +135,161 @@
         hamburger.classList.toggle('active');
         navMenu.classList.toggle('active');
     });
+</script>
+<script>
+    // Define the distributePayment function (provided by you)
+    /**
+     * Calculates and distributes funds from a customer's payment to an artist,
+     * a charity, and the platform (Potash).
+     *
+     * @param {number} amount - The total amount paid by the customer.
+     * @param {number} artistCharityPercent - The percentage of the payment allocated to the charity (e.g., 0.10 for 10%).
+     * @param {number} platformFeePercent - The percentage of the payment taken as a platform fee (e.g., 0.05 for 5%).
+     * @returns {object} An object containing the amounts distributed to the charity,
+     * the artist, and the platform.  Returns null on error.
+     */
+    function distributePayment(amount, artistCharityPercent, platformFeePercent) {
+        // Input validation:
+        if (typeof amount !== 'number' || amount <= 0) {
+            console.error('Invalid amount: Amount must be a positive number.');
+            return null;
+        }
+        if (typeof artistCharityPercent !== 'number' || artistCharityPercent < 0 || artistCharityPercent > 0.50) {
+            console.error('Invalid artistCharityPercent: Percentage must be between 0 and 0.50.');
+            return null;
+        }
+        if (typeof platformFeePercent !== 'number' || platformFeePercent < 0 || platformFeePercent > 1) {
+            console.error('Invalid platformFeePercent: Percentage must be between 0 and 1.');
+            return null;
+        }
+        if (artistCharityPercent + platformFeePercent >= 1) {
+            console.error('Invalid percentages: Charity and fee percentages must add up to less than 100%.');
+            return null;
+        }
+
+        const charityAmount = amount * artistCharityPercent;
+        const platformFee = amount * platformFeePercent;
+        const artistAmount = amount - charityAmount - platformFee;
+
+        // Ensure no negative amounts due to rounding errors
+        if (charityAmount < 0 || artistAmount < 0 || platformFee < 0) {
+            console.error('Error: Negative amount calculated. Check input values and calculations.');
+            return null;
+        }
+
+        return {
+            charityAmount: charityAmount,
+            artistAmount: artistAmount,
+            platformFee: platformFee,
+        };
+    }
+
+    // Define platform fee for Potash (as discussed, 5%)
+    const POTASH_FEE_PERCENT = 0.05;
+
+    // Define artist data with their charity percentages and names
+    const artistsData = {
+        artist1: {
+            name: 'Lee Sampson (Penguin Cartoons)',
+            charityPercent: 0.20, // 20%
+            charityName: 'Mary Potter Hospice'
+        },
+        artist2: {
+            name: 'Mr Sampson (Bird Illustrations)',
+            charityPercent: 0.35, // 35%
+            charityName: 'SPCA New Zealand'
+        },
+        artist3: {
+            name: 'L. Sampson (Digital Landscapes)',
+            charityPercent: 0.15, // 15%
+            charityName: 'Breast Cancer Foundation NZ'
+        }
+    };
+
+    // Get references to HTML elements
+    const artistSelect = document.getElementById('artistSelect');
+    const purchaseAmountInput = document.getElementById('purchaseAmount');
+    const simulateButton = document.getElementById('simulatePurchase');
+
+    const displayArtistName = document.getElementById('displayArtistName');
+    const displayCharityName = document.getElementById('displayCharityName');
+    const displayCharityPercent = document.getElementById('displayCharityPercent');
+    const displayPlatformFee = document.getElementById('displayPlatformFee');
+
+    const resultCharityAmount = document.getElementById('resultCharityAmount');
+    const resultArtistAmount = document.getElementById('resultArtistAmount');
+    const resultPlatformFee = document.getElementById('resultPlatformFee');
+
+    // Function to update the displayed artist/charity info based on selection
+    function updateArtistInfo() {
+        const selectedArtistId = artistSelect.value;
+        const selectedArtist = artistsData[selectedArtistId];
+
+        if (selectedArtist) {
+            displayArtistName.textContent = selectedArtist.name;
+            displayCharityName.textContent = selectedArtist.charityName;
+            displayCharityPercent.textContent = `${(selectedArtist.charityPercent * 100).toFixed(0)}%`;
+            displayPlatformFee.textContent = `${(POTASH_FEE_PERCENT * 100).toFixed(0)}%`;
+        } else {
+            // Clear if no artist selected (shouldn't happen with default options)
+            displayArtistName.textContent = '';
+            displayCharityName.textContent = '';
+            displayCharityPercent.textContent = '';
+            displayPlatformFee.textContent = '';
+        }
+    }
+
+    // Add event listener for the button
+    simulateButton.addEventListener('click', () => {
+        const selectedArtistId = artistSelect.value;
+        const selectedArtist = artistsData[selectedArtistId];
+        const purchaseAmount = parseFloat(purchaseAmountInput.value); // Convert input to a number
+
+        // Clear previous results
+        resultCharityAmount.textContent = '$0.00';
+        resultArtistAmount.textContent = '$0.00';
+        resultPlatformFee.textContent = '$0.00';
+
+        // Perform validation
+        if (!selectedArtist) {
+            alert('Please select an artist.'); // Use custom modal in future
+            return;
+        }
+        if (isNaN(purchaseAmount) || purchaseAmount <= 0) {
+            alert('Please enter a valid positive purchase amount.'); // Use custom modal in future
+            return;
+        }
+
+        // Call the payment distribution function
+        const distribution = distributePayment(
+            purchaseAmount,
+            selectedArtist.charityPercent,
+            POTASH_FEE_PERCENT
+        );
+
+        if (distribution) {
+            // Display the results
+            resultCharityAmount.textContent = `$${distribution.charityAmount.toFixed(2)}`;
+            resultArtistAmount.textContent = `$${distribution.artistAmount.toFixed(2)}`;
+            resultPlatformFee.textContent = `$${distribution.platformFee.toFixed(2)}`;
+        } else {
+            alert('An error occurred during payment distribution. Check console for details.'); // Use custom modal
+        }
+    });
+
+    // Initialize artist info display on page load
+    updateArtistInfo();
+    artistSelect.addEventListener('change', updateArtistInfo);
+
+    // Responsive nav script (keep your existing one)
+    // (Variables already declared above, so just use them here)
+
+    if (hamburger && navMenu) { // Ensure elements exist before adding listener
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+    }
 </script>
 </body>
 </html>
